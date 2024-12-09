@@ -1,0 +1,278 @@
+/*Grundläggande styling */
+
+*,html {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+    
+h1{
+    font-size: 2.5rem;
+    color: white;  
+    font: normal 3.75 Secular one; 
+    text-align: right;    
+}
+
+h2{
+    color: #FFD029;
+    font: normal .76rem Lora;
+    letter-spacing: .77rem;
+    text-align: right;
+}
+
+.h6{
+    color: rgb(255, 255, 255);
+    padding-top: 1.5rem;
+    font: normal 7rem Secular One;
+    
+    @media screen and (min-width: 425px) {
+        font-size: .8rem;
+    }
+
+    @media screen and (min-width: 768px) {
+        font-size: 1rem;
+    }
+}
+
+.p{
+    letter-spacing: 2px;
+    color: #C9D4F1;
+    padding: .5rem 0 1rem 0;
+    font: normal .6rem Roboto Condensed;
+    @media screen and (min-width: 430px) {
+        font-size: 1rem;
+    }
+}
+
+#distance {
+    color: rgb(255, 254, 254);
+    padding: .5rem 0 1rem;
+    font: normal 18px Secular One;
+}
+    
+body {
+    max-width: 100vw;
+    max-height: 100vh;
+    background-image: linear-gradient(to right, rgba(12, 22, 77, 1), rgba(25, 11, 34, 1));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+        
+    .sun1{ /*Gula Solen */
+        visibility: visible;
+        background-color: #FFD029;
+        width: 850px;
+        height: 850px;
+        align-content: center;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 50%; 
+        position: absolute; 
+        transform: translate(-85%);
+        z-index: 3;
+    }  
+    .sun2{ /*Blåa solen*/
+        display: none;
+        top: 50%;
+        left: 0;
+        position: absolute;
+        height: 110vh;
+        width: 110vh;
+        background-color: rgba(66, 142, 212, 0.5);
+        border-radius: 50%;
+        transform: translate(-81%, -50%);
+        z-index: 3;
+    }
+    .sun3 {
+        background-color: rgba(66, 142, 212, 0.2);
+        display: none;
+        top: 50%;
+        left: 0;
+        height: 110vh;
+        width: 110vh;
+        z-index: 2;
+        border-radius: 50%;
+        transform: translate(-79%, -50%);
+        position: absolute;
+    }
+
+    header {
+        width: 100%;
+        display:inline;
+        position: relative;
+        top: 4.5rem;
+        right: 4.25rem;
+
+    }
+
+    main {
+        /*Planeterna container*/
+        #planets { 
+            align-items: center;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            width: 1169px;
+            height: 250px;
+            display: flex; /* Arrangerar planeterna i en rad */
+            justify-content: space-between;
+            margin: 50vh 2rem 0 auto;
+            /*background-color: #e76b1f; Enkla färger för planeterna */
+            .mercury {
+                background-color:#8888;
+                width: 14px;
+                height: 14px;
+                cursor: pointer;
+                border-radius: 50%;
+            }
+            
+            .venus {
+                background-color: #E7CDCD;
+                width: 26px;
+                height: 26px;
+                cursor: pointer;
+                border-radius: 50%;
+            }
+            
+            .earth {
+                background-color: #0077ff;
+                width: 28px;
+                height: 28px;
+                cursor: pointer;
+                border-radius: 50%;
+            }
+            
+            .mars {
+                background-color: #d84011;
+                width: 14px;
+                height: 14px;
+                cursor: pointer;
+                border-radius: 50%;
+            }
+            
+            .saturnus {
+                background-color: #df934c;
+                width: 188px;
+                height: 188px;
+                cursor: pointer;
+                border-radius: 50%;
+
+                .saturnus-rings{
+                    background-color: rgba(255, 255, 255, 0.4);
+                    width: 230px;
+                    height: 6px;
+                    position: absolute;
+                    border-radius: 50%;
+                    //ringen är nu i mitten och roterar
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%) rotate(-30deg);
+                }
+            }   
+            
+            .jupiter {
+                background-color: #e76b1f;
+                width: 144px;
+                height: 144px;
+                cursor: pointer;
+                border-radius: 50%;
+            }
+            
+            .uranus{
+                background-color: #C9D4F1;
+                width: 66px;
+                height: 66px;
+                cursor: pointer;
+                border-radius: 50%;
+            }
+            
+            .neptunus{
+                background-color:rgb(113, 151, 156);
+                width: 66px;
+                height: 66px;
+                cursor: pointer;
+                border-radius: 50%;
+            }
+        } 
+        /* Styling för overlay */
+        .planet-overlay {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            background-size: cover;
+            background-blend-mode: lighten;
+            background: url(universum.jpg) rgba(12, 22, 77, 0.8);
+            
+            .overlay-content {
+                position: absolute;
+                background-color: white;
+                height: 80%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-65%, -50%);
+                width: 70%;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+
+                #close-btn {  /* Button to trigger overlay*/
+    
+                    background-color: #007BFF;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    font-weight: bold;
+                    font-size: 2rem;
+                    
+                    @media screen and (min-width: 420px) {
+                        font-size: 1.75rem;
+                    }
+                    @media screen and (min-width: 768px) {
+                        font-size: 2.5rem;
+                    }
+                    
+                }
+
+                hr {
+                    width: 100%;
+                    margin: 1rem 0;
+                    border-top: 1px solid rgb(50, 48, 48)
+                }
+
+
+                .DataContainer{
+                    display: grid;
+                    gap: 2rem;
+                    grid-template-columns: repeat(2,1fr);
+                    grid-template-rows: repeat(2, );
+                    grid-template-areas: "a b" "c d";
+
+                    .data1 {
+                        grid-area: a;
+                    }
+                    .data2 {
+                        grid-area: b;
+                    }
+                    .data3 {
+                        grid-area: c;
+                    }
+                    .data4 {
+                        grid-area: d;
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+

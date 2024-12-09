@@ -1,0 +1,263 @@
+@charset "UTF-8";
+/*Grundläggande styling */
+*, html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: white;
+  font: normal 3.75 Secular one;
+  text-align: right;
+  text-shadow: #f1efef;
+}
+
+h2 {
+  color: #FFD029;
+  font: normal 0.76rem Lora;
+  letter-spacing: 0.77rem;
+  text-align: right;
+  text-shadow: #bba03e;
+}
+
+.h6 {
+  color: rgb(255, 255, 255);
+  padding-top: 1.5rem;
+  font: normal 7rem Secular One;
+}
+@media screen and (min-width: 425px) {
+  .h6 {
+    font-size: 0.8rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .h6 {
+    font-size: 1rem;
+  }
+}
+
+.p {
+  display: block;
+  letter-spacing: 2px;
+  color: #C9D4F1;
+  padding: 0.5rem 0 1rem 0;
+  font: normal 0.6rem Roboto Condensed;
+}
+@media screen and (min-width: 430px) {
+  .p {
+    font-size: 1rem;
+  }
+}
+
+#distance {
+  color: rgb(255, 254, 254);
+  padding: 0.5rem 0 1rem;
+  font: normal 18px Secular One;
+}
+
+body {
+  max-width: 100vw;
+  max-height: 100vh;
+  background-image: linear-gradient(to right, rgb(12, 22, 77), rgb(25, 11, 34));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+body .sun1 { /*Gula Solen */
+  visibility: visible;
+  background-color: #FFD029;
+  width: 850px;
+  height: 850px;
+  align-content: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-85%);
+  z-index: 3;
+}
+body .sun2 { /*Blåa solen*/
+  display: none;
+  left: 0;
+  top: 0;
+  position: absolute;
+  height: 110vh;
+  width: 110vh;
+  background-color: rgba(66, 142, 212, 0.5);
+  border-radius: 50%;
+  transform: translate(-80%, -10%);
+  z-index: 3;
+}
+body .sun3 {
+  background-color: rgba(66, 142, 212, 0.2);
+  display: none;
+  top: 50%;
+  left: 0;
+  height: 110vh;
+  width: 110vh;
+  z-index: 2;
+  border-radius: 50%;
+  transform: translate(-72%, -12%);
+  position: absolute;
+}
+body header {
+  width: 100%;
+  display: inline;
+  position: relative;
+  top: 4.5rem;
+  right: 4.25rem;
+}
+
+body main #planets {
+  align-items: center;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  width: 1169px;
+  height: 250px;
+  display: flex; /* Arrangerar planeterna i en rad */
+  justify-content: space-between;
+  margin: 50vh 2rem 0 auto;
+  /*background-color: #e76b1f; Enkla färger för planeterna */
+}
+body main #planets .mercury {
+  background-color: rgba(136, 136, 136, 0.5333333333);
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+body main #planets .venus {
+  background-color: #E7CDCD;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+body main #planets .earth {
+  background-color: #0077ff;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+body main #planets .mars {
+  background-color: #d84011;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+body main #planets .saturnus {
+  background-color: #df934c;
+  width: 188px;
+  height: 188px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+body main #planets .saturnus .saturnus-rings {
+  background-color: rgba(255, 255, 255, 0.4);
+  width: 230px;
+  height: 6px;
+  position: absolute;
+  border-radius: 50%;
+  top: 50%;
+  left: 45%;
+  transform: translate(-50%) rotate(-30deg);
+}
+body main #planets .jupiter {
+  background-color: #e76b1f;
+  width: 144px;
+  height: 144px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+body main #planets .uranus {
+  background-color: #C9D4F1;
+  width: 66px;
+  height: 66px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+body main #planets .neptunus {
+  background-color: rgb(113, 151, 156);
+  width: 66px;
+  height: 66px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+body main .planet-overlay {
+  display: none;
+  position: fixed;
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background-size: cover;
+  background-blend-mode: lighten;
+  background: url(universum.jpg) rgba(12, 22, 77, 0.8);
+}
+body main .planet-overlay .overlay-content {
+  position: absolute;
+  background-color: #C9D4F1;
+  margin: 6rem;
+  max-width: 50rem;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  gap: 1rem;
+  transform: translate(-50%, -58%);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+body main .planet-overlay .overlay-content #close-btn { /* Button to trigger overlay*/
+  background-color: #007BFF;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-weight: bold;
+  font-size: .1rem;
+}
+@media screen and (min-width: 420px) {
+  body main .planet-overlay .overlay-content #close-btn {
+    font-size: 1.75rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  body main .planet-overlay .overlay-content #close-btn {
+    font-size: 2.5rem;
+  }
+}
+body main .planet-overlay .overlay-content hr {
+  width: 100%;
+  margin: 1rem 0;
+  border-top: 1px solid rgb(50, 48, 48);
+}
+body main .planet-overlay .overlay-content .DataContainer {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 2fr);
+  grid-template-rows: repeat(2, 2fr);
+  grid-template-areas: "a b" "c d";
+}
+body main .planet-overlay .overlay-content .DataContainer .data1 {
+  grid-area: a;
+}
+body main .planet-overlay .overlay-content .DataContainer .data2 {
+  grid-area: b;
+}
+body main .planet-overlay .overlay-content .DataContainer .data3 {
+  grid-area: c;
+}
+body main .planet-overlay .overlay-content .DataContainer .data4 {
+  grid-area: d;
+}/*# sourceMappingURL=style.css.map */
